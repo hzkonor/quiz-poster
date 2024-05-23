@@ -10,12 +10,16 @@ interface QuizFormProps {
   correctAnswer: string;
   correctAnswerText: string;
   incorrectAnswerText: string;
+  onNextQuestion: () => void;
+  onCorrectAnswer: () => void;
+  setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+  setFeedback: React.Dispatch<React.SetStateAction<string | null>>;
+  isSubmitted: boolean;
+  feedback: string | null;
 }
 
-export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAnswerText, incorrectAnswerText }: QuizFormProps) {
+export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAnswerText, incorrectAnswerText, onNextQuestion, onCorrectAnswer, setIsSubmitted, setFeedback, isSubmitted, feedback }: QuizFormProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -44,7 +48,7 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
                   <Button
                     type="button"
                     key={index}
-                    className={`flex items-center bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${selectedAnswer === answer ? 'border-2 border-emerald-500' : ''}`}
+                    className={`flex items-center bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${selectedAnswer === answer ? 'border-2 border-blue-500' : ''}`}
                     onClick={() => setSelectedAnswer(answer)}
                     variant="custom"
                   >
@@ -66,14 +70,18 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
           )}
         </form>
         {feedback &&
-          <div className="mt-4 text-center text-lg font-medium" id="feedback">{feedback}
+          <div className={`mt-4 text-center text-lg font-medium ${selectedAnswer === correctAnswer ? 'text-green-500' : 'text-red-500'}`} id="feedback">
+            <p className="mb-4">
+              {feedback}</p>
             <Button
               className="bg-gray-900 hover:bg-gray-900/90 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-offset-gray-800 w-full"
-              type="submit"
+              type="button"
+              onClick={selectedAnswer === correctAnswer ? onCorrectAnswer : onNextQuestion}
             >
               Question suivante
             </Button>
-          </div>}
+          </div>
+        }
       </div>
     </div>
   )
