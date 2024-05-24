@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import React, { useState } from 'react';
+import Image from "next/image";
 
 interface QuizFormProps {
   question: string;
@@ -41,7 +42,7 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <h2 className="text-lg font-bold mb-10 text-center">{question}</h2>
-            {imageSrc && <img src={imageSrc} alt="Quiz" className="w-full h-auto mb-4" />}
+            {imageSrc && <Image src={imageSrc} alt="Quiz" className="w-full h-auto mb-4" />}
             {!isSubmitted && (
               <div className="grid grid-cols-1 gap-4">
                 {answers.map((answer, index) => (
