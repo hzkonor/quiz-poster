@@ -41,28 +41,35 @@ export default function Quiz() {
     };
 
     return (
-        <main className="min-h-screen min-h-full bg-gray-100 dark:bg-gray-900">
-            {currentQuestionIndex < questions.length ? (
-                <QuizForm
-                    question={questions[currentQuestionIndex].question}
-                    answers={questions[currentQuestionIndex].answers}
-                    imageSrc={questions[currentQuestionIndex].imageSrc}
-                    correctAnswer={questions[currentQuestionIndex].correctAnswer}
-                    correctAnswerText={questions[currentQuestionIndex].correctAnswerText}
-                    incorrectAnswerText={questions[currentQuestionIndex].incorrectAnswerText}
-                    onCorrectAnswer={handleCorrectAnswer}
-                    onNextQuestion={handleNextQuestion}
-                    setIsSubmitted={setIsSubmitted}
-                    setFeedback={setFeedback}
-                    isSubmitted={isSubmitted}
-                    feedback={feedback}
-                />
-            ) : (
-                <QuizEnd score={score} />
-            )
+        <div className="flex flex-col h-screen"
+            style={{
+                backgroundImage: "url('background.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}>
+            <div className="min-h-screen min-h-full bg-gray-100 bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80">
+                {currentQuestionIndex < questions.length ? (
+                    <QuizForm
+                        question={questions[currentQuestionIndex].question}
+                        answers={questions[currentQuestionIndex].answers}
+                        imageSrc={questions[currentQuestionIndex].imageSrc}
+                        correctAnswer={questions[currentQuestionIndex].correctAnswer}
+                        correctAnswerText={questions[currentQuestionIndex].correctAnswerText}
+                        incorrectAnswerText={questions[currentQuestionIndex].incorrectAnswerText}
+                        onCorrectAnswer={handleCorrectAnswer}
+                        onNextQuestion={handleNextQuestion}
+                        setIsSubmitted={setIsSubmitted}
+                        setFeedback={setFeedback}
+                        isSubmitted={isSubmitted}
+                        feedback={feedback}
+                    />
+                ) : (
+                    <QuizEnd score={score} />
+                )
 
-            }
-        </main>
+                }
+            </div>
+        </div>
 
     );
 }
