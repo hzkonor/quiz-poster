@@ -1,6 +1,7 @@
 import { Button } from './ui/button';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { BadgeAlertIcon } from 'lucide-react';
 
 interface QuizEndProps {
     score: number;
@@ -17,6 +18,13 @@ export function QuizEnd({ score }: QuizEndProps) {
             ) : (
                 "Wouah, vous êtes un.e expert.e, vous pouvez dès à présent vous lancer dans l'expérience du stage avec un score de " + score
             )}
+
+            <div className="mt-10 bg-amber-200 dark:bg-amber-800 rounded-lg text-amber-800 dark:text-amber-200 p-4 flex items-center space-x-2">
+                <BadgeAlertIcon className="w-8 h-8" />
+                <span>Le quiz est sur 20 mais il est possible qu'il manque des questions 😬</span>
+            </div>
+
+
 
             <Link href="/">
                 <Button

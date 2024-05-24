@@ -20,11 +20,11 @@ export default function Quiz() {
             imageSrc: undefined
         },
         {
-            question: "Pourquoi je suis gentil ?",
-            answers: ["bonjour", "Des choses", "Des trucs", "Je ne sais pas"],
-            correctAnswer: "Des choses",
-            correctAnswerText: "Oui c'est bien la bonne réponse !",
-            incorrectAnswerText: "Non, malheureseument ce n'est pas ça...",
+            question: "Quels éléments sont importants pour évaluer la qualité d'une haie ?",
+            answers: ["Le nombre d'espèces d'arbres", "Le nombre d'espèces d'herbacées", "Le nombre d'insectes et mollusques", "Toutes ces réponses"],
+            correctAnswer: "Toutes ces réponses",
+            correctAnswerText: "Et oui, tous ces facteurs peuvent être importants pour évaluer une haie !",
+            incorrectAnswerText: "La bonne réponse était tous les facteurs cités ! Le nombre d'espèces d'arbres et d'herbacées ainsi que d'insectes et de mollusques peut apporter des informations sur la qualité d'une haie",
             imageSrc: undefined
         },
     ];
