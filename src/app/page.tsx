@@ -13,7 +13,7 @@ export default function Home() {
               className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full sm:w-auto"
               variant="link"
             >
-              Télcharger le poster
+              Télécharger le poster
             </Button>
           </a>
           <Link href="/quiz">

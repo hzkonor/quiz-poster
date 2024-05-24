@@ -70,7 +70,8 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
           )}
         </form>
         {feedback &&
-          <div className={`mt-4 text-center text-lg font-medium ${selectedAnswer === correctAnswer ? 'text-green-500' : 'text-red-500'}`} id="feedback">
+          <div className="mt-4 text-center" id="feedback">
+            <p className={`${selectedAnswer === correctAnswer ? 'text-green-500' : 'text-red-500'}`}>{selectedAnswer === correctAnswer ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
             <p className="mb-4">
               {feedback}</p>
             <Button
