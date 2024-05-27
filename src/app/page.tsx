@@ -9,7 +9,7 @@ export default function Home() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>
-      <div className="flex flex-col h-screen bg-gray-100 bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80">
 
         <div className="lg:mx-40 m-10">
           <h1 className="text-3xl font-bold mb-6 text-center">Bienvenue !</h1>

@@ -24,14 +24,16 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    setIsSubmitted(true);
-    if (selectedAnswer) {
-      if (selectedAnswer === correctAnswer) {
-        setFeedback(correctAnswerText);
-      } else {
-        setFeedback(incorrectAnswerText);
-      }
+    if (!selectedAnswer) {
+      return;
     }
+    setIsSubmitted(true);
+    if (selectedAnswer === correctAnswer) {
+      setFeedback(correctAnswerText);
+    } else {
+      setFeedback(incorrectAnswerText);
+    }
+
   };
 
   return (
