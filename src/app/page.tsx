@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   return (
@@ -31,6 +32,8 @@ export default function Home() {
                 Aller au quiz immersif
               </Button>
             </Link>
+
+            <Analytics />
           </div>
         </div>
       </div >
