@@ -57,9 +57,9 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
           <div>
             <h2 className="text-lg font-bold mb-10 text-center">{question}</h2>
 
-            {multiple && <p className="italic text-sm text-center mb-6">Plusieurs réponses possibles</p>}
+            {!feedback && multiple && <p className="italic text-sm text-center mb-6">Plusieurs réponses possibles</p>}
 
-            {imageSrc && <Image src={imageSrc} alt="Quiz" className="w-full h-auto mb-4" />}
+
             {!isSubmitted && (
               <div className="grid grid-cols-1 gap-4">
                 {answers.map((answer, index) => (
@@ -76,6 +76,11 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
               </div>
             )}
           </div>
+          {imageSrc && (
+            <div>
+              <img src={imageSrc} alt="Quiz" className="w-full h-auto mb-4"></img>
+            </div>
+          )}
           {!isSubmitted && (
             <div className="flex justify-center">
               <Button
@@ -87,11 +92,11 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
             </div>
           )}
         </form>
-        {feedback &&
-          <div className="mt-4 text-center" id="feedback">
-            <p className={`${JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'text-green-500' : 'text-red-500'}`}>{JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
-            <p className="mb-4">
-              {feedback}</p>
+        {
+          feedback &&
+          <div className="mt-4" id="feedback">
+            <p className={`text-center ${JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'text-green-500' : 'text-red-500'}`}>{JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
+            <p className="my-4 text-justify" dangerouslySetInnerHTML={{ __html: feedback }}></p>
             <Button
               className="bg-gray-900 hover:bg-gray-900/90 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-offset-gray-800 w-full"
               type="button"
@@ -108,7 +113,7 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
             </Button>
           </div>
         }
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
