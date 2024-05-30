@@ -8,7 +8,8 @@ interface QuizFormProps {
   question: string;
   answers: string[];
   imageSrc?: string;
-  correctAnswer: string;
+  correctAnswers: number[];
+  multiple: boolean;
   correctAnswerText: string;
   incorrectAnswerText: string;
   onNextQuestion: () => void;
@@ -19,21 +20,32 @@ interface QuizFormProps {
   feedback: string | null;
 }
 
-export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAnswerText, incorrectAnswerText, onNextQuestion, onCorrectAnswer, setIsSubmitted, setFeedback, isSubmitted, feedback }: QuizFormProps) {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+export function QuizForm({ question, answers, imageSrc, correctAnswers, correctAnswerText, incorrectAnswerText, onNextQuestion, onCorrectAnswer, setIsSubmitted, setFeedback, isSubmitted, feedback, multiple }: QuizFormProps) {
+  const [selectedAnswers, setSelectedAnswers] = useState<number[]>([]);
+
+  const handleAnswerClick = (index: number) => {
+    if (multiple) {
+      if (selectedAnswers.includes(index)) {
+        setSelectedAnswers(selectedAnswers.filter(i => i !== index));
+      } else {
+        setSelectedAnswers([...selectedAnswers, index]);
+      }
+    } else {
+      setSelectedAnswers([index]);
+    }
+  };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (!selectedAnswer) {
+    if (selectedAnswers.length === 0) {
       return;
     }
     setIsSubmitted(true);
-    if (selectedAnswer === correctAnswer) {
+    if (JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort())) {
       setFeedback(correctAnswerText);
     } else {
       setFeedback(incorrectAnswerText);
     }
-
   };
 
   return (
@@ -44,6 +56,9 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <h2 className="text-lg font-bold mb-10 text-center">{question}</h2>
+
+            {multiple && <p className="italic text-sm text-center mb-6">Plusieurs réponses possibles</p>}
+
             {imageSrc && <Image src={imageSrc} alt="Quiz" className="w-full h-auto mb-4" />}
             {!isSubmitted && (
               <div className="grid grid-cols-1 gap-4">
@@ -51,8 +66,8 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
                   <Button
                     type="button"
                     key={index}
-                    className={`flex items-center bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${selectedAnswer === answer ? 'border-2 border-blue-500' : ''}`}
-                    onClick={() => setSelectedAnswer(answer)}
+                    className={`flex items-center bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${selectedAnswers.includes(index) ? 'border-2 border-blue-500' : ''}`}
+                    onClick={() => handleAnswerClick(index)}
                     variant="custom"
                   >
                     {answer}
@@ -74,13 +89,20 @@ export function QuizForm({ question, answers, imageSrc, correctAnswer, correctAn
         </form>
         {feedback &&
           <div className="mt-4 text-center" id="feedback">
-            <p className={`${selectedAnswer === correctAnswer ? 'text-green-500' : 'text-red-500'}`}>{selectedAnswer === correctAnswer ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
+            <p className={`${JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'text-green-500' : 'text-red-500'}`}>{JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
             <p className="mb-4">
               {feedback}</p>
             <Button
               className="bg-gray-900 hover:bg-gray-900/90 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-offset-gray-800 w-full"
               type="button"
-              onClick={selectedAnswer === correctAnswer ? onCorrectAnswer : onNextQuestion}
+              onClick={() => {
+                if (JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort())) {
+                  onCorrectAnswer();
+                } else {
+                  onNextQuestion();
+                }
+                setSelectedAnswers([]);
+              }}
             >
               Question suivante
             </Button>
