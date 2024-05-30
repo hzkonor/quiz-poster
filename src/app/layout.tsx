@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Expérience de stage',
     description: "Tentez l'expérience de l'évaluation des haies du Pilat !",
     url: 'https://poster-haies-cvb.vercel.app/',
-    siteName: 'Next.js',
+    siteName: 'Expérience de stage',
     images: [
       {
         url: 'https://poster-haies-cvb.vercel.app/background.jpg', // Must be an absolute URL
