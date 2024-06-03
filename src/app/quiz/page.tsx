@@ -63,7 +63,7 @@ export default function Quiz() {
         {
             question: "On avance doucement dans le stage, avec un peu de bibliographie et de renseignements, nous avons appris que l'IBQS était un indice calculé grâce aux densités moyennes des espèces de la macrofaune. Pour pouvoir calculer cet indice, de quel matériel pourrions-nous avoir besoin ?",
             answers: ["Un décamètre", "Un chronomètre", "Une feuille et un stylo (ou crayon à papier...)", "Un aspifaune (c'est l'image !)", "Des jumelles", "Un livre d'identification", "Un quadrat"],
-            correctAnswers: [1, 2, 3, 5],
+            correctAnswers: [1, 2, 3, 5, 6],
             multiple: true,
             correctAnswerText: "Bravo, tu as trouvé tout le matériel nécessaire ! Le quadrat pour délimiter notre zone de prospection, le chronomètre pour avoir le même temps de récolte dans tous les échantillonnages, de quoi noter nos observations, de quoi prélever pour identification future avec l'aspifaune et le livre d'identification.",
             incorrectAnswerText: "Le bon matériel était : le quadrat pour délimiter notre zone de prospection, le chronomètre pour avoir le même temps de récolte dans tous les échantillonnages, de quoi noter nos observations, de quoi prélever pour identification future avec l'aspifaune et le livre d'identification. Si tu as coché le décamètre, c'est une bonne idée pour les relevés botaniques, mais ici ce n'est pas très utile. De même, les jumelles ne seront pas très utiles...",
