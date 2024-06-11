@@ -25,7 +25,7 @@ export default function Quiz() {
     const questions = [
         {
             question: "Avant de commencer ce stage, il faudrait peut-être savoir de quoi on parle... Alors, que sont les haies ?",
-            answers: ["De la végatation rectiligne bien taillée", "Une séparation entre 2 milieux", "Un alignement de végétaux de moins 6 mètres de large", "Un alignement de végétaux de moins de 2 mètres de large"],
+            answers: ["De la végétation rectiligne bien taillée", "Une séparation entre 2 milieux", "Un alignement de végétaux de moins 6 mètres de large", "Un alignement de végétaux de moins de 2 mètres de large"],
             correctAnswers: [2],
             multiple: false,
             correctAnswerText: "En effet, une haie est un alignement de végétaux de moins de 6 mètres de large. La vision commune des haies dans les jardins ne correspond pas à ce qu'on définit ici comme des haies !",
