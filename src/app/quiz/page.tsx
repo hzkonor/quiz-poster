@@ -85,7 +85,7 @@ export default function Quiz() {
             multiple: false,
             correctAnswerText: "C'est bien, tu reste concentré.e sur le reste de ton quadrat ! Normalement, avec une photo et une courte description, on devrait réussir à l'identifier sans faire défiler tout notre temps d'observation !",
             incorrectAnswerText: "C'est bien, tu est méticuleux.se... mais peut-être un peu trop. Si tu perds trop de temps à identifier une espèce, comment tu pourras bien rendre compte du quadrat ? Alors il vaut mieux prendre une photo rapide et faire une courte description.",
-            imageSrc: "/citron.png"
+            imageSrc: "/cloporte.jpg"
         },
         {
             question: "La première journée de terrain touche à sa fin. Que fait-on maintenant ?",
