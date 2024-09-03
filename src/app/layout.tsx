@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../styles/global.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: 'Expérience de stage',
     images: [
       {
-        url: 'https://poster-haies-cvb.vercel.app/background.jpg', // Must be an absolute URL
+        url: 'https://poster-haies-cvb.vercel.app/images/background.jpg', // Must be an absolute URL
         width: 800,
         height: 600,
       }

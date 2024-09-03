@@ -67,7 +67,7 @@ export default function Quiz() {
             multiple: true,
             correctAnswerText: "Bravo, tu as trouvé tout le matériel nécessaire ! Le quadrat pour délimiter notre zone de prospection, le chronomètre pour avoir le même temps de récolte dans tous les échantillonnages, de quoi noter nos observations, de quoi prélever pour identification future avec l'aspifaune et le livre d'identification.",
             incorrectAnswerText: "Le bon matériel était : le quadrat pour délimiter notre zone de prospection, le chronomètre pour avoir le même temps de récolte dans tous les échantillonnages, de quoi noter nos observations, de quoi prélever pour identification future avec l'aspifaune et le livre d'identification. Si tu as coché le décamètre, c'est une bonne idée pour les relevés botaniques, mais ici ce n'est pas très utile. De même, les jumelles ne seront pas très utiles...",
-            imageSrc: "/aspifaune.png"
+            imageSrc: "images/aspifaune.png"
         },
         {
             question: "Nous avons tout le matériel nécessaire, avec un joli quadrat en bois de 40 sur 40 cm. Nous avons repéré les haies à échantillonner pour la journée. Maintenant, où est-ce que je pose mon quadrat pour faire mes relevés ?",
@@ -85,7 +85,7 @@ export default function Quiz() {
             multiple: false,
             correctAnswerText: "C'est bien, tu reste concentré.e sur le reste de ton quadrat ! Normalement, avec une photo et une courte description, on devrait réussir à l'identifier sans faire défiler tout notre temps d'observation !",
             incorrectAnswerText: "C'est bien, tu est méticuleux.se... mais peut-être un peu trop. Si tu perds trop de temps à identifier une espèce, comment tu pourras bien rendre compte du quadrat ? Alors il vaut mieux prendre une photo rapide et faire une courte description.",
-            imageSrc: "/cloporte.jpg"
+            imageSrc: "images/cloporte.jpg"
         },
         {
             question: "La première journée de terrain touche à sa fin. Que fait-on maintenant ?",
@@ -130,7 +130,7 @@ export default function Quiz() {
     return (
         <div className="flex flex-col h-screen fixed inset-0 overflow-auto"
             style={{
-                backgroundImage: "url('background.jpg')",
+                backgroundImage: "url('images/background.jpg')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}>

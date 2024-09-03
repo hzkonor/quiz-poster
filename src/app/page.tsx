@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen"
       style={{
-        backgroundImage: "url('background.jpg')",
+        backgroundImage: "url('images/background.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>
