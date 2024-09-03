@@ -52,7 +52,7 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold my-6 text-center">Immersion dans le stage...</h1>
 
-      <div className="max-w-md w-full h-full sm:h-auto mb-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+      <div className="max-w-md w-full h-full sm:h-auto mb-8 bg-base-100 rounded-lg shadow-lg p-8">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <h2 className="text-lg font-bold mb-10 text-center">{question}</h2>
@@ -63,15 +63,14 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
             {!isSubmitted && (
               <div className="grid grid-cols-1 gap-4">
                 {answers.map((answer, index) => (
-                  <Button
+                  <button
                     type="button"
                     key={index}
-                    className={`flex items-center bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${selectedAnswers.includes(index) ? 'border-2 border-blue-500' : ''}`}
+                    className={`flex items-center btn ${selectedAnswers.includes(index) ? 'btn-outline' : 'btn-ghost'}`}
                     onClick={() => handleAnswerClick(index)}
-                    variant="custom"
                   >
                     {answer}
-                  </Button>
+                  </button>
                 ))}
               </div>
             )}
@@ -83,22 +82,22 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
           )}
           {!isSubmitted && (
             <div className="flex justify-center">
-              <Button
-                className="bg-gray-900 hover:bg-gray-900/90 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-offset-gray-800 w-full"
+              <button
+                className="btn btn-accent text-accent-content w-full"
                 type="submit"
               >
                 Envoyer la réponse
-              </Button>
+              </button>
             </div>
           )}
         </form>
         {
           feedback &&
           <div className="mt-4" id="feedback">
-            <p className={`text-center ${JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'text-green-500' : 'text-red-500'}`}>{JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
+            <p className={`text-center ${JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'text-success' : 'text-error'}`}>{JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort()) ? 'Bien joué !' : 'Bien tenté... mais non !'}</p>
             <p className="my-4 text-justify" dangerouslySetInnerHTML={{ __html: feedback }}></p>
-            <Button
-              className="bg-gray-900 hover:bg-gray-900/90 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-offset-gray-800 w-full"
+            <button
+              className="btn btn-accent text-accent-content w-full"
               type="button"
               onClick={() => {
                 if (JSON.stringify(selectedAnswers.sort()) === JSON.stringify(correctAnswers.sort())) {
@@ -110,7 +109,7 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
               }}
             >
               Question suivante
-            </Button>
+            </button>
           </div>
         }
       </div >

@@ -134,7 +134,7 @@ export default function Quiz() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}>
-            <div className="fixed inset-0 bg-gray-100 bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80 overflow-auto">
+            <div className="fixed inset-0 bg-base-100 bg-opacity-80 text-base-content overflow-auto">
                 {currentQuestionIndex < questions.length ? (
                     <QuizForm
                         question={questions[currentQuestionIndex].question}

@@ -15,6 +15,14 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("daisyui"),
+  ],
+  daisyui: {
+    themes: ["garden", "forest"],
+    darkTheme: "forest",
+  },
+  darkMode: ['class', '[data-theme="forest"]']
 };
 export default config;
