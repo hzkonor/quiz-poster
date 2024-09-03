@@ -1,7 +1,7 @@
 "use client"
 
-import { QuizForm } from "@/components/quiz-form";
-import { QuizEnd } from "@/components/quiz-end";
+import { QuizForm } from "@components/quiz-form";
+import { QuizEnd } from "@components/quiz-end";
 import React, { useState } from 'react';
 
 export default function Quiz() {
