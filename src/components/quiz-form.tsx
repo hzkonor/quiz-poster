@@ -66,7 +66,7 @@ export function QuizForm({ question, answers, imageSrc, correctAnswers, correctA
                   <button
                     type="button"
                     key={index}
-                    className={`flex items-center btn ${selectedAnswers.includes(index) ? 'btn-outline' : 'btn-ghost'}`}
+                    className={`flex items-center h-auto p-2 btn ${selectedAnswers.includes(index) ? 'btn-outline' : 'btn-ghost'}`}
                     onClick={() => handleAnswerClick(index)}
                   >
                     {answer}
