@@ -1,4 +1,3 @@
-import { Button } from './ui/button';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { BadgeAlertIcon } from 'lucide-react';
@@ -25,12 +24,6 @@ export function QuizEnd({ score }: QuizEndProps) {
 
             <Link href="/">
             <button className='btn btn-accent'>Retourner à l&apos;accueil</button>
-                {/* <Button
-                    className="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-full sm:w-auto mt-10"
-                    variant="link"
-                >
-                    Retourner à l&apos;accueil
-                </Button> */}
             </Link>
         </div>
     );
