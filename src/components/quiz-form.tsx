@@ -6,7 +6,7 @@ import Image from "next/image";
 interface QuizFormProps {
   question: string;
   answers: string[];
-  imageSrc?: string;
+  imageSrc: string | null;
   correctAnswers: number[];
   multiple: boolean;
   correctAnswerText: string;
