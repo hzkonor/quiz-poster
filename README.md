@@ -27,7 +27,7 @@ To run this project locally, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd scientific-poster-quiz
+   cd quiz-poster
    ```
 
 3. Install dependencies (make sure you have [Node.js](https://nodejs.org/) installed):
